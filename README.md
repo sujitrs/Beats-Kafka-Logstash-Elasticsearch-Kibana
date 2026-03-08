@@ -4,7 +4,7 @@ A complete guide to setting up an **ELK 8.x Cluster with Kafka 3.x** on Linux (R
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 | VM | Hostname | Roles |
 |---|---|---|
@@ -20,7 +20,7 @@ App/Beats → Kafka Topic (logs) → Logstash Consumer → Elasticsearch → Kib
 
 ---
 
-## 📋 Prerequisites (All VMs)
+## Prerequisites (All VMs)
 
 ### 1. System Requirements
 
@@ -49,7 +49,7 @@ sudo tee -a /etc/hosts <<EOF
 192.168.1.102  elk-node2
 192.168.1.103  elk-node3
 EOF
-# ⚠️ Replace IPs with your actual VM IPs
+#  Replace IPs with your actual VM IPs
 ```
 
 ### 3. System Tuning (ALL VMs)
@@ -102,7 +102,7 @@ sudo firewall-cmd --reload
 
 ---
 
-## 🐘 STEP 1 — Kafka + Zookeeper Setup (All 3 VMs)
+##  STEP 1 — Kafka + Zookeeper Setup (All 3 VMs)
 
 ### Install Kafka
 
@@ -228,7 +228,7 @@ sudo systemctl status kafka zookeeper
 
 ---
 
-## 🔍 STEP 2 — Elasticsearch Cluster (All 3 VMs)
+## STEP 2 — Elasticsearch Cluster (All 3 VMs)
 
 ### Install Elasticsearch
 
@@ -321,7 +321,7 @@ curl -u elastic:YOUR_PASSWORD https://elk-node1:9200/_cluster/health?pretty -k
 
 ---
 
-## 📊 STEP 3 — Kibana (VM3)
+##  STEP 3 — Kibana (VM3)
 
 ```bash
 sudo dnf install -y kibana
@@ -344,7 +344,7 @@ sudo systemctl start kibana
 
 ---
 
-## 🔄 STEP 4 — Logstash with Kafka Input (VM2)
+##  STEP 4 — Logstash with Kafka Input (VM2)
 
 ```bash
 sudo dnf install -y logstash
@@ -396,7 +396,7 @@ sudo systemctl status logstash
 
 ---
 
-## ✅ STEP 5 — Verify Everything
+##  STEP 5 — Verify Everything
 
 ```bash
 # 1. Kafka cluster
@@ -421,7 +421,7 @@ curl -u elastic:PASSWORD \
 
 ---
 
-## 🔁 Component Port Reference
+##  Component Port Reference
 
 | Component | Port | Protocol |
 |---|---|---|
@@ -436,7 +436,7 @@ curl -u elastic:PASSWORD \
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - Replace all `YOUR_PASSWORD` / `YOUR_ELASTIC_PASSWORD` / `YOUR_KIBANA_SYSTEM_PASSWORD` placeholders with actual secure passwords.
 - Replace `192.168.1.10x` IPs with your actual VM IPs in `/etc/hosts`.
@@ -445,7 +445,7 @@ curl -u elastic:PASSWORD \
 
 ---
 
-## 📚 References
+##  References
 
 - [Elasticsearch Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 - [Kibana Docs](https://www.elastic.co/guide/en/kibana/current/index.html)
